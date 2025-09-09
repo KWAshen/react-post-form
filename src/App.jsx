@@ -5,13 +5,20 @@ function App() {
   const [formdata, setformdata] = useState({
     author:"",
     title:"",
-    public:false,
+    public:"",
     body:"",
   })
 
-const handleChange = () => {
-  console.log(formdata);
+const handleChange = (e) => {
+  e.preventdefoult();
+  axios
+    .post("https://**67c5b4f3351c081993fb1ab6**.mockapi.io**/api**/posts",formdata)
+    .then((resp) => {
+      console.log(resp.data);
+    }).catch(err =>console.log("Errore nell\'effettuare la chiamata"+err));
 }
+
+
 
   return (
     <div className="container my-5">
@@ -27,7 +34,7 @@ const handleChange = () => {
               <input type="text"
               name="author"
               value={formdata.author}
-              className="form-control" placeholder="autore"
+              className="form-control" placeholder="author"
               onChange={handleChange}/>
               
             </div>
@@ -48,7 +55,9 @@ const handleChange = () => {
               <input type="check-box"
               name="public"
               checked={formdata.public}
-              className="form-check " />
+              className="form-check "
+              placeholder="public"/>
+              
               </div>
             </div>
             <div className="col-12">
