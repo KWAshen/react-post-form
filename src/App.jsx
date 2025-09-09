@@ -12,7 +12,7 @@ function App() {
 const handleChange = (e) => {
   e.preventdefoult();
   axios
-    .post("https://**67c5b4f3351c081993fb1ab6**.mockapi.io**/api**/posts",formdata)
+    .post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts",formdata)
     .then((resp) => {
       console.log(resp.data);
     }).catch(err =>console.log("Errore nell\'effettuare la chiamata"+err));
